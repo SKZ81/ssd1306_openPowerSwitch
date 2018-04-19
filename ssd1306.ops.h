@@ -15,4 +15,6 @@ void ssd1306_clear(uint8_t line);
 
 //void ssd1306_pgm_dump(uint8_t line, )
 
+void openPowerSwitch_logo(void);
+
 #endif
