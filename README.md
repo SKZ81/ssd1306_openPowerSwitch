@@ -40,7 +40,8 @@ then call this little utility (written in python) :
 the `#define`s that are outputted are optional, just as reminders of the image format. You will probably want to rename the array (for now, the utility lacks an option parser, I probably won't do it).
 
 Define an `external` reference to this array, or copy it into your main code, and here you are !
-(**NOTE** : actually not exactly, for now... You'll have to write a custom function to actually send it to the display, but see the openPowerSwitch_logo()
+
+(**NOTE** : actually not exactly, for now... You'll have to write a custom function to actually send it to the display, but see the `openPowerSwitch_logo()` for an example)
 
 ### Have fun !!
 
