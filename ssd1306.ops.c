@@ -252,6 +252,40 @@ void openPowerSwitch_logo() {
 }
 
 
+static const unsigned char led_on[];
+static const unsigned char led_off[];
+#define LED_ICON_SIZE 8
+
+void openPowerSwitch_outlet_status(uint8_t line, uint8_t status) {
+    if (line>SSD1306_NB_LINE) return;
+
+    ssd1306_clear(line);
+
+    ssd1306_send(SSD1306_COLUMNADDR);
+    ssd1306_send(0x24);
+    ssd1306_send(0x5C);
+
+    ssd1306_send(SSD1306_PAGEADDR);
+    ssd1306_send(line);
+    ssd1306_send(line+1);
+
+    for (uint8_t led = 0; led < 4; led++) {
+        i2c_start();
+        i2c_write(0x40);
+
+        unsigned char* icon = (status & (1 << led)) ? led_on : led_off;
+        uint8_t counter=0;
+        for(; counter < LED_ICON_SIZE; counter++) {
+            i2c_write(pgm_read_byte(icon + counter));
+        }
+        while(counter < 16) {
+            i2c_write(0);
+            counter++;
+        }
+        i2c_stop();
+    }
+}
+
 // Standard ASCII 5x7 font
 // Copied from Adafruit's GFX lib
 
@@ -564,4 +598,12 @@ static const unsigned char ops_logo[] PROGMEM = {
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+};
+
+static const unsigned char led_on[] PROGMEM = {
+0x3C,0x42,0x99,0xB5,0xBD,0x99,0x42,0x3C
+};
+
+static const unsigned char led_off[] PROGMEM = {
+0x3C,0x42,0x81,0x81,0x81,0x81,0x42,0x3C
 };
