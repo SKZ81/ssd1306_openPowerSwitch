@@ -46,3 +46,6 @@ Define an `external` reference to this array, or copy it into your main code, an
 ### Have fun !!
 
 ![ssd1306 display with openPowerSwitch logo](https://github.com/SKZ81/ssd1306_openPowerSwitch/blob/master/images/ssd1306_ops_logo.jpg "openPowerSwitch logo on ssd1306 display")
+
+![ssd1306 display leds to show outlet status](https://github.com/SKZ81/ssd1306_openPowerSwitch/blob/master/images/outlet_status.jpg "openPowerSwitch outlet status display")
+
