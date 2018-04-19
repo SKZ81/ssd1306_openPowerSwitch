@@ -63,8 +63,8 @@ def xbm2ssd1306(input_filename, output_filename, debug=False):
     if width == -1 or height == -1:
         print('missing image dimension')
         error = True
-    elif len(bits) != width*height/8:
-        print('Number of value mismatch dimensions (found: ' + str(len(bits)) + ', expected: ' + str(width*height/8))
+    elif len(bits) != width*-(-height//8):
+        print('Number of value mismatch dimensions (found: ' + str(len(bits)) + ', expected: ' + str(width*-(-height//8)))
         error = True
     if error:
         return 2
