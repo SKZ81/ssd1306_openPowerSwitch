@@ -70,6 +70,7 @@ def xbm2ssd1306(input_filename, output_filename, debug=False):
         return 2
 
     #TODO !! what if width % 8 !=0 ?? check XBM format in this case first
+    #NOTE: checked with test_notaligned, seems to work seamlessly
     def get_bit(w, h):
         if w>=width or h>=height:
             return 0
