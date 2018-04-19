@@ -43,3 +43,5 @@ Define an `external` reference to this array, or copy it into your main code, an
 (**NOTE** : actually not exactly, for now... You'll have to write a custom function to actually send it to the display, but see the openPowerSwitch_logo()
 
 ### Have fun !!
+
+![ssd1306 display with openPowerSwitch logo](https://github.com/SKZ81/ssd1306_openPowerSwitch/blob/master/images/ssd1306_ops_logo.jpg "openPowerSwitch logo on ssd1306 display")
